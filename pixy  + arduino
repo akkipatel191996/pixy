@@ -4,13 +4,13 @@
 #include <stdio.h>
 # include <iostream.h>
 
-Pixy pixy;
+Pixy;
 
 void setup()
 {
 
-  Serial.begin(9600);
-  Serial.print("Starting...\n");
+  Serial.begin(9660);
+  Serial.print("Starting.....\n");
 
   pixy.init();
 }
@@ -19,24 +19,24 @@ void loop()
 { 
   static int i = 0;
   int j;
-  uint16_t blocks;
+  uint16_t block;
   char buf[32]; 
   
-  blocks = pixy.getBlocks();
+  block = pixy.getBlock();
   
-  if (blocks)
+  if (block)
   {
     i++;
     
     if (i%50==0)
     {
-      sprintf(buf, "Detected %d:\n", blocks);
+      printf(buf, "Detected %d:\n", block);
       Serial.print(buf);
-      for (j=0; j<blocks; j++)
+      for (j=0; j<block; j++)
       {
-        sprintf(buf, "  block %d: ", j);
+        printf(buf, "  block %d: ", j);
         Serial.print(buf); 
-        pixy.blocks[j].print();
+        pixy.block[j].print();
       }
     }
   }  
