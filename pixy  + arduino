@@ -41,5 +41,5 @@ void loop()
     }
   }  
 }
-///// pixy2 interfacing with Arduino
+///// pixy2 interfacing with Arduino.
 
